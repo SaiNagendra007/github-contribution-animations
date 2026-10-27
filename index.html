@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d1117">
+  <meta name="description" content="Animated GitHub contribution calendar for SaiNagendra007.">
+  <title>GitHub Contributions — SaiNagendra007</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="./">SaiNagendra007 <span>/ commits</span></a>
+    <a class="github-link" href="https://github.com/SaiNagendra007" target="_blank" rel="noreferrer">View GitHub ↗</a>
+  </header>
+  <main>
+    <section class="hero">
+      <p class="eyebrow">OPEN SOURCE ACTIVITY · INTERACTIVE LAB</p>
+      <h1>A year of commits,<br><span>in motion.</span></h1>
+      <p class="intro">Real GitHub contribution data, six canvas experiments, and a little motion. Data is generated offline and refreshed by GitHub Actions.</p>
+      <div class="stats">
+        <div><strong id="total">—</strong><span>contributions reported by GitHub</span></div>
+        <div><strong id="range">—</strong><span>calendar range</span></div>
+        <div><strong id="updated">—</strong><span>data last refreshed</span></div>
+      </div>
+    </section>
+    <div id="status" class="status" role="status">Loading contribution data…</div>
+    <section class="experiments">
+      <article class="experiment wide">
+        <div class="card-heading"><div><p class="number">01 / THE GRID</p><h2>Contribution calendar</h2></div><button class="replay" data-replay="grid">↻ Replay</button></div>
+        <p class="description">A diagonal wave drops each day into place. Hover or focus a cell to inspect its date and count.</p>
+        <div class="canvas-wrap grid-wrap"><canvas id="grid" aria-label="Animated GitHub contribution calendar"></canvas><div id="tooltip" class="tooltip" hidden></div></div>
+        <div class="legend"><span>Less</span><i style="--c:#ebedf0"></i><i style="--c:#9be9a8"></i><i style="--c:#40c463"></i><i style="--c:#30a14e"></i><i style="--c:#216e39"></i><span>More</span></div>
+      </article>
+      <article class="experiment wide">
+        <div class="card-heading"><div><p class="number">02 / SKYLINE</p><h2>Commit city</h2></div><button class="replay" data-replay="skyline">↻ Replay</button></div>
+        <p class="description">Contribution days rise as oblique 3D blocks. Heights use a square-root scale to keep spikes from flattening the city.</p>
+        <div class="canvas-wrap skyline-wrap"><canvas id="skyline" aria-label="3D contribution skyline animation"></canvas></div>
+      </article>
+      <article class="experiment">
+        <div class="card-heading"><div><p class="number">03 / PULSE</p><h2>Week by week</h2></div><button class="replay" data-replay="pulse">↻ Replay</button></div>
+        <p class="description">Weekly totals trace a line before pouring into the calendar.</p>
+        <div class="canvas-wrap small-wrap"><canvas id="pulse" aria-label="Weekly activity pulse animation"></canvas></div>
+      </article>
+      <article class="experiment">
+        <div class="card-heading"><div><p class="number">04 / ORBIT</p><h2>Round the year</h2></div><button class="replay" data-replay="ring">↻ Replay</button></div>
+        <p class="description">Seven weekday rings, one spoke per week, revealed by a sweeping hand.</p>
+        <div class="canvas-wrap small-wrap"><canvas id="ring" aria-label="Circular contribution calendar animation"></canvas></div>
+      </article>
+      <article class="experiment">
+        <div class="card-heading"><div><p class="number">05 / STREAK</p><h2>Current streak</h2></div><button class="replay" data-replay="streak">↻ Replay</button></div>
+        <p class="description">A moving tracer follows the current streak. If today has no contributions yet, the streak starts yesterday.</p>
+        <div class="canvas-wrap small-wrap"><canvas id="streak" aria-label="Current GitHub contribution streak animation"></canvas></div>
+        <p id="streak-caption" class="microcopy"></p>
+      </article>
+      <article class="experiment">
+        <div class="card-heading"><div><p class="number">06 / TERMINAL</p><h2>TTY contributions</h2></div><button class="replay" data-replay="terminal">↻ Replay</button></div>
+        <p class="description">A terminal types a command, scrambles glyphs, then settles into the real activity levels.</p>
+        <div class="canvas-wrap small-wrap"><canvas id="terminal" aria-label="Animated terminal contribution calendar"></canvas></div>
+      </article>
+    </section>
+    <section class="footnote">
+      <p><strong>Data note.</strong> The total is GitHub’s <code>totalContributions</code>; the daily cells come from GraphQL. Those values may not sum to the same number. The counter animation therefore lands on GitHub’s reported total.</p>
+      <p>Private contributions are only included when the account settings and token permissions allow them. No token is shipped to this page.</p>
+    </section>
+  </main>
+  <footer><span>Built with Canvas, GraphQL, and GitHub Actions.</span><a href="https://github.com/SaiNagendra007" target="_blank" rel="noreferrer">@SaiNagendra007 ↗</a></footer>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
